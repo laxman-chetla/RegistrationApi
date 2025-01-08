@@ -13,6 +13,9 @@ import java.util.List;
 
 public interface UserService {
  public User createAccount(User user);
- public List<User> getAllUsers();
+ public User updateAccount(User user);
+ public String userLogin(String EmailId,String password);
+ public String userLogout();
+ public String deleteAccount(String EmailId);
 
 }
