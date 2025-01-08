@@ -20,13 +20,23 @@ public class UserController{
     public User createAccount(@RequestBody User user) {
         return service.createAccount(user);
     }
-@GetMapping("/getusers")
-    public List<User> getAllUsers(){
-        return service.getAllUsers();
+
+    @PostMapping("/userLogin/{EmailId}/{password}")
+    public String userLogin(@PathVariable String EmailId,@PathVariable String password)
+    {
+        return service.userLogin(EmailId,password);
     }
-    @RequestMapping("/success")
-    public String success(){
-        return "Laxman succeeded";
+    @PutMapping("/updateAccount")
+    public User updateAccount(User user){
+        return service.updateAccount(user);
     }
+
+    @DeleteMapping("/userLogout")
+    public String userLogout(){
+        return service.userLogout();
+    }
+    @DeleteMapping("/deleteAccount")
+    public String deleteAccount(String EmailId){
+        return service.deleteAccount(EmailId);}
 
 }
