@@ -17,14 +17,29 @@ import java.util.List;
 public class UserServiceImpl implements UserService{
     @Autowired
     UserRepository userRepo;
- /*List<User> users= new Arrays.asList(new User(1,"laxman","lax4@gmail.com","lax123", Gender.Male,Boolean.TRUE,"hyderabad"));*/
+ 
     @Override
     public User createAccount(User user){
 
         return userRepo.save(user);
     }
-   public List<User> getAllUsers(){
-        return userRepo.findAll();}
+   
+    @Override
+    public User updateAccount(User user){
+      return userRepo.save(user);
+    };
+    @Override
+    public String userLogin(String EmailId,String password){
+        return "Login Success";
+    };
+    @Override
+    public String userLogout(){
+        return "Logged out";
+    };
+    @Override
+    public String deleteAccount(String EmailId){
+        return "Account deleted successfully";
+    };
 
 
 }
